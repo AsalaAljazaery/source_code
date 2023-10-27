@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ECG Prediction Results</title>
+    <style>
+        /* Add your CSS styles here */
+        .result-container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Prediction Result:</h2>
+        <p>The ECG reading is classified as <strong>{{ result }}</strong>.</p>
+    </div>
+
+    <div class="description-container">
+        <h2>Categories and Descriptions:</h2>
+        <ul>
+            <li><strong>NORM (Normal ECG):</strong> This category represents a normal Electrocardiogram (ECG) reading.</li>
+            <li><strong>MI (Myocardial Infarction):</strong> Myocardial Infarction, commonly known as a heart attack.</li>
+            <li><strong>STTC (ST/T Change):</strong> ST and T wave changes in an ECG may be indicative of cardiac pathology or a normal variant.</li>
+            <li><strong>CD (Conduction Disturbance):</strong> Conduction disturbance.</li>
+            <li><strong>HYP (Hypertrophy):</strong> Hypertrophic Cardiomyopathy (HCM).</li>
+        </ul>
+    </div>
+
+    <!-- Display error message if there's an error -->
+    {% if error %}
+    <div class="error">
+        <p>{{ error }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
